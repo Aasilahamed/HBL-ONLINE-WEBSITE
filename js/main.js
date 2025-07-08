@@ -219,36 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Audio Toggle
-    const audioToggle = document.querySelector('.audio-toggle');
-    let audioPlaying = false;
-    let backgroundAudio;
-    
-    audioToggle.addEventListener('click', () => {
-        audioToggle.classList.toggle('muted');
-        
-        if (audioPlaying) {
-            // Pause audio
-            if (backgroundAudio) {
-                backgroundAudio.pause();
-            }
-            audioPlaying = false;
-        } else {
-            // Play audio
-            if (!backgroundAudio) {
-                backgroundAudio = new Audio('assets/audio/background.mp3');
-                backgroundAudio.loop = true;
-                backgroundAudio.volume = 0.2;
-            }
-            
-            backgroundAudio.play().catch(error => {
-                console.log('Audio play failed:', error);
-            });
-            
-            audioPlaying = true;
-        }
-    });
-    
     // Stat Counter Animation
     function animateCounters() {
         const counters = document.querySelectorAll('.stat-number');
